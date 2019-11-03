@@ -11,17 +11,22 @@
 //Define arrays for password generator
 var lowerAlpha  = "abcdefghijklmnopqrstuvwxyz";
 var upperAlpha  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var special     = "~`!#$%^&*+=-[]\\\';,/{}|\":<>?";
+var specialChar     = "~`!#$%^&*+=-[]\\\';,/{}|\":<>?";
 var numbers     = "0123456789";
 
 //Generate random alpha numeric password based on pwLength with mulitple arrays
 function generatePW() {
     var password    = '';
     for ( var i = 0; i < pwLength; i++ ) {
-       password += lowerAlpha.concat(upperAlpha, special, numbers).charAt(Math.floor(Math.random() * lowerAlpha.concat(upperAlpha, special, numbers).length));
+        if (pwLength > 7 && pwLength < 129) {
+            if (confirmSpecial === true && confirmNum === true && confirmLower === true && confirmUpper === true) {
+                password += specialChar.concat(upperAlpha,lowerAlpha, numbers).charAt(Math.floor(Math.random() * specialChar.concat(upperAlpha, lowerAlpha, numbers).length));
+            }
     }
+}
     return password;
  }
+
 
  
 // Choose password length
@@ -39,17 +44,22 @@ var confirmSpecial = confirm("Would you like to use special characters?"); {
     console.log(confirmSpecial);
 }
 
-// // //Choose whether or not to use numbers
+// // // //Choose whether or not to use numbers
 var confirmNum = confirm("Would you like to use numbers?"); {
     console.log(confirmNum);
 }
 
-// // //Choose whether or not use uppercase 
+// // // //Choose whether or not use uppercase 
+var confirmLower = confirm("Would you like to use lowercase characters?"); {
+    console.log(confirmLower);
+}
+
+// // // //Choose whether or not use uppercase 
 var confirmUpper = confirm("Would you like to use uppercase characters?"); {
     console.log(confirmUpper);
 }
 
-
+// password += lowerAlpha.concat(upperAlpha, special, numbers).charAt(Math.floor(Math.random() * lowerAlpha.concat(upperAlpha, special, numbers).length));
 
 
 
