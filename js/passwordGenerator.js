@@ -1,3 +1,29 @@
+// //Generate random alpha numeric password based on pwLength
+// function generatePW(length) {
+//     var password           = '';
+//     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!#$%^&*+=-[]\\\';,/{}|\":<>?';
+//     for ( var i = 0; i < pwLength; i++ ) {
+//        password += characters.charAt(Math.floor(Math.random() * characters.length));
+//     }
+//     return password;
+//  }
+
+//Define arrays for password generator
+var lowerAlpha  = "abcdefghijklmnopqrstuvwxyz";
+var upperAlpha  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var special     = "~`!#$%^&*+=-[]\\\';,/{}|\":<>?";
+var numbers     = "0123456789";
+
+//Generate random alpha numeric password based on pwLength with mulitple arrays
+function generatePW() {
+    var password    = '';
+    for ( var i = 0; i < pwLength; i++ ) {
+       password += lowerAlpha.concat(upperAlpha, special, numbers).charAt(Math.floor(Math.random() * lowerAlpha.concat(upperAlpha, special, numbers).length));
+    }
+    return password;
+ }
+
+ 
 // Choose password length
 var pwLength = prompt("Choose a password length between 8 and 128 characters:"); {
     console.log(pwLength);
@@ -8,45 +34,28 @@ var pwLength = prompt("Choose a password length between 8 and 128 characters:");
     } else generatePW();        
 }
 
+// // // //Choose whether or not to use special characters
+var confirmSpecial = confirm("Would you like to use special characters?"); {
+    console.log(confirmSpecial);
+}
+
+// // //Choose whether or not to use numbers
+var confirmNum = confirm("Would you like to use numbers?"); {
+    console.log(confirmNum);
+}
+
+// // //Choose whether or not use uppercase 
+var confirmUpper = confirm("Would you like to use uppercase characters?"); {
+    console.log(confirmUpper);
+}
 
 
 
 
 
+console.log(generatePW());
 
-function generatePW(length) {
-    var password           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var characterslength = characters.length;
-    for ( var i = 0; i < pwLength; i++ ) {
-       password += characters.charAt(Math.floor(Math.random() * characterslength));
-    }
-    return password;
- }
- 
- console.log(generatePW(length));
-
-
-
-
-
-
-
-// // //Choose whether or not to use special characters
-// var pwSpecialChar = prompt("Would you like to use special characters?"); {
-//     console.log(pwSpecialChar);
-// }
-
-// //Choose whether or not to use numbers
-// var pwNum = prompt("Would you like to use numbers?"); {
-//     console.log(pwNum);
-// }
-
-// //Choose whether or not use uppercase 
-// var pwUpper = prompt("Would you like to use uppercase characters?"); {
-//     console.log(pwUpper);
-// }
-
+// https://stackoverflow.com/questions/28970925/basic-javascript-password-generator
 
 
 
