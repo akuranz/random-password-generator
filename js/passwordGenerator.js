@@ -19,11 +19,53 @@ function generatePW() {
     var password    = '';
     for ( var i = 0; i < pwLength; i++ ) {
         if (pwLength > 7 && pwLength < 129) {
+            //Conditionals
+            //All true
             if (confirmSpecial === true && confirmNum === true && confirmLower === true && confirmUpper === true) {
                 password += specialChar.concat(upperAlpha,lowerAlpha, numbers).charAt(Math.floor(Math.random() * specialChar.concat(upperAlpha, lowerAlpha, numbers).length));
+
+            //One False
+            } else if (confirmSpecial === true && confirmNum === true && confirmLower === true && confirmUpper === false) {
+                password += specialChar.concat(lowerAlpha, numbers).charAt(Math.floor(Math.random() * specialChar.concat(lowerAlpha, numbers).length));
+            } else if (confirmSpecial === true && confirmNum === true && confirmLower === false && confirmUpper === true) {
+                password += specialChar.concat(upperAlpha, numbers).charAt(Math.floor(Math.random() * specialChar.concat(upperAlpha, numbers).length));
+            } else if (confirmSpecial === true && confirmNum === false && confirmLower === true && confirmUpper === true) {
+                password += specialChar.concat(upperAlpha,lowerAlpha).charAt(Math.floor(Math.random() * specialChar.concat(upperAlpha, lowerAlpha).length));
+            } else if (confirmSpecial === false && confirmNum === true && confirmLower === true && confirmUpper === true) {
+                password += numbers.concat(upperAlpha,lowerAlpha).charAt(Math.floor(Math.random() * numbers.concat(upperAlpha, lowerAlpha).length));
+
+            //Two False
+            } else if (confirmSpecial === false && confirmNum === false && confirmLower === true && confirmUpper === true) {
+                password += upperAlpha.concat(lowerAlpha).charAt(Math.floor(Math.random() * upperAlpha.concat(lowerAlpha).length));
+            } else if (confirmSpecial === false && confirmNum === true && confirmLower === false && confirmUpper === true) {
+                password += upperAlpha.concat(numbers).charAt(Math.floor(Math.random() * upperAlpha.concat(numbers).length));
+            } else if (confirmSpecial === false && confirmNum === true && confirmLower === true && confirmUpper === false) {
+                password += confirmNum.concat(lowerAlpha).charAt(Math.floor(Math.random() * confirmNum.concat(lowerAlpha).length));
+            } else if (confirmSpecial === true && confirmNum === false && confirmLower === false && confirmUpper === true) {
+                password += specialChar.concat(upperAlpha).charAt(Math.floor(Math.random() * specialChar.concat(upperAlpha).length));
+            } else if (confirmSpecial === true && confirmNum === false && confirmLower === true && confirmUpper === false) {
+                password += specialChar.concat(lowerAlpha).charAt(Math.floor(Math.random() * specialChar.concat(lowerAlpha).length));
+            } else if (confirmSpecial === true && confirmNum === true && confirmLower === false && confirmUpper === false) {
+                password += specialChar.concat(numbers).charAt(Math.floor(Math.random() * specialChar.concat(numbers).length));
+
+            //Three False
+            } else if (confirmSpecial === false && confirmNum === false && confirmLower === false && confirmUpper === true) {
+                password += upperAlpha.charAt(Math.floor(Math.random() * upperAlpha.length));
+            } else if (confirmSpecial === false && confirmNum === true && confirmLower === false && confirmUpper === false) {
+                password += numbers.charAt(Math.floor(Math.random() * numbers.length));
+            } else if (confirmSpecial === false && confirmNum === false && confirmLower === true && confirmUpper === false) {
+                password += lowerAlpha.charAt(Math.floor(Math.random() * lowerAlpha.length));
+            } else if (confirmSpecial === true && confirmNum === false && confirmLower === false && confirmUpper === false) {
+                password += specialChar.charAt(Math.floor(Math.random() * specialChar.length));
+
+            //All False
+            } else if (confirmSpecial === false && confirmNum === false && confirmLower === false && confirmUpper === false) {
+                alert("You must choose one type of character to generate a password. Refresh page and try again!");
+                break;
             }
+        }
     }
-}
+
     return password;
  }
 
