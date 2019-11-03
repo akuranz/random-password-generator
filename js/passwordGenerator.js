@@ -103,8 +103,8 @@ var confirmUpper = confirm("Would you like to use uppercase characters?"); {
 
 // password += lowerAlpha.concat(upperAlpha, special, numbers).charAt(Math.floor(Math.random() * lowerAlpha.concat(upperAlpha, special, numbers).length));
 
-
-
+document.getElementById("password").innerHTML = generatePW();
+window.alert(generatePW());
 console.log(generatePW());
 
 // https://stackoverflow.com/questions/28970925/basic-javascript-password-generator
