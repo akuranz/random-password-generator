@@ -81,30 +81,29 @@ var pwLength = prompt("Choose a password length between 8 and 128 characters:");
     } else generatePW();        
 }
 
-// // // //Choose whether or not to use special characters
+//Choose whether or not to use special characters
 var confirmSpecial = confirm("Would you like to use special characters?"); {
     console.log(confirmSpecial);
 }
 
-// // // //Choose whether or not to use numbers
+//Choose whether or not to use numbers
 var confirmNum = confirm("Would you like to use numbers?"); {
     console.log(confirmNum);
 }
 
-// // // //Choose whether or not use uppercase 
+//Choose whether or not use uppercase 
 var confirmLower = confirm("Would you like to use lowercase characters?"); {
     console.log(confirmLower);
 }
 
-// // // //Choose whether or not use uppercase 
+//Choose whether or not use uppercase 
 var confirmUpper = confirm("Would you like to use uppercase characters?"); {
     console.log(confirmUpper);
 }
 
-// password += lowerAlpha.concat(upperAlpha, special, numbers).charAt(Math.floor(Math.random() * lowerAlpha.concat(upperAlpha, special, numbers).length));
 
 document.getElementById("password").innerHTML = generatePW();
-window.alert(generatePW());
+// window.alert(generatePW());
 console.log(generatePW());
 
 // https://stackoverflow.com/questions/28970925/basic-javascript-password-generator
