@@ -27,17 +27,24 @@
                         <div class="card-body">
                             <h2 class="card-title">Generate a Password</h2>
                             <hr/>
-                            <p id="password" class="card-text wrap-text">Your Secure Password</p>
+                            <textarea id="password" type="textarea" class="card-text">Your Secure Password</textarea>
                             <hr/>
                         </div>
                         <div class="card-body d-flex justify-content-around">
-                            <input type="button" value="Generate Password" onClick="window.location.reload();" class="btn btn-danger">
-                            <a href="#" class="card-link"><button type="button" class="btn btn-light"><h3>Copy to Clipboard</h3></button></a>
+                            <div class="row">
+                                <div class="col-md">
+                                    <input type="button" value="Generate Password" id="generatePW" class="btn btn-info mb-4">
+                                </div>
+                                <div class="col-md">
+                                    <input type="button" value="Copy to Clipboard" id="copy" class="btn btn-light mb-4">
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
                 </div>        
             </div>
-        </div>
+
 
         <script type="text/javascript" src="js/passwordGenerator.js"></script>
     
